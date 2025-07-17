@@ -32,29 +32,40 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th class="text-center">No</th>
-                                        <th class="text-center">ID Pesanan</th>
+                                        <th class="text-center">Nama Pelanggan</th>
                                         <th class="text-center">Nama Produk</th>
+                                        <th class="text-center">Tgl Pesan</th>
+                                        <th class="text-center">Tgl Pengiriman</th>
                                         <th class="text-center">Isi Papan</th>
                                         <th class="text-center">Jumlah</th>
+                                        <th class="text-center">Harga</th>
                                         <th class="text-center">Total Harga</th>
+                                        <th class="text-center">Status</th>
                                         <th class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @forelse ($detail_pesanan as $data)
                                         <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $data->id_pesanan }}</td>
-                                            <td>{{ $data->detailpesanan->nama }}</td>
-
+                                            <td>{{ $nomor++ }}</td>
+                                            <td>{{ $data->pelanggan->nama }}</td>
+                                            <td>{{ $data->produk->nama }}</td>
+                                            {{-- <td>{{ $data->id_pesanan }}</td> --}}
                                             <td>{{ $data->pesanan->tgl_pesan }}</td>
                                             <td>{{ $data->pesanan->tgl_pengiriman }}</td>
-                                            <td>{{ ucfirst($data->pesanan->status) }}</td>
-
-
                                             <td>{{ $data->isi_papan }}</td>
                                             <td>{{ $data->jumlah }}</td>
+                                            <td>{{ $data->produk->harga }}</td>
                                             <td>Rp {{ number_format($data->total_harga, 0, ',', '.') }}</td>
+                                            <td>
+                                                <span
+                                                    class="badge
+                                                @if ($data->pesanan->status == 'pending') bg-warning
+                                                @elseif($data->pesanan->status == 'gagal') bg-danger
+                                                @elseif($data->pesanan->status == 'berhasil') bg-success @endif">
+                                                    {{ ucfirst($data->pesanan->status) }}
+                                                </span>
+                                            </td>
                                             <td>
                                                 <div class="btn-group">
                                                     <a href="{{ url('/detail_pesanan/edit/' . $data->id) }}"

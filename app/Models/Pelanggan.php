@@ -19,4 +19,9 @@ class Pelanggan extends Model
     {
         return $this->belongTo(Pesanan::class);
     }
+
+    public function detailpesanan()
+    {
+        return $this->belongTo(Detail_pesanan::class);
+    }
 }

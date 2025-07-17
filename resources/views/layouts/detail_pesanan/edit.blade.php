@@ -19,6 +19,19 @@
                             @csrf
                             @method('PUT')
 
+                            <div class="mb-3">
+                                <label for="id_pelanggan" class="form-label">Pilih Pelanggan</label>
+                                <select name="id_pelanggan" id="id_pelanggan" class="form-select" required>
+                                    <option value="">-- Pilih Pelanggan --</option>
+                                    @foreach ($pelanggan as $p)
+                                        <option value="{{ $p->id }}"
+                                            {{ $detail_pesanan->id_pelanggan == $p->id ? 'selected' : '' }}>
+                                            {{ $p->nama }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             {{-- ID Pesanan --}}
                             <div class="mb-3">
                                 <label for="id_pesanan" class="form-label">ID Pesanan</label>
@@ -36,7 +49,7 @@
                             <div class="mb-3">
                                 <label for="id_produk" class="form-label">Pilih Produk</label>
                                 <select name="id_produk" id="id_produk" class="form-select" required>
-                                    <option value="">-- Pilih PelangProdukgan --</option>
+                                    <option value="">-- Pilih Produk --</option>
                                     @foreach ($produk as $p)
                                         <option value="{{ $p->id }}"
                                             {{ $detail_pesanan->id_produk == $p->id ? 'selected' : '' }}>
@@ -44,6 +57,20 @@
                                         </option>
                                     @endforeach
                                 </select>
+                            </div>
+
+                            {{-- Tanggal Pesan --}}
+                            <div class="mb-3">
+                                <label for="tgl_pesan" class="form-label">Tanggal Pesan</label>
+                                <input type="date" class="form-control" id="tgl_pesan" name="tgl_pesan"
+                                    value="{{ $detail_pesanan->tgl_pesan }}" required>
+                            </div>
+
+                            {{-- Tanggal Pengiriman --}}
+                            <div class="mb-3">
+                                <label for="tgl_pengiriman" class="form-label">Tanggal Pengiriman</label>
+                                <input type="date" class="form-control" id="tgl_pengiriman" name="tgl_pengiriman"
+                                    value="{{ $detail_pesanan->tgl_pengiriman }}" required>
                             </div>
 
                             {{-- Isi Papan --}}
@@ -64,6 +91,19 @@
                                 <label for="total_harga" class="form-label">Total Harga</label>
                                 <input type="number" class="form-control" id="total_harga" name="total_harga"
                                     value="{{ $detail_pesanan->total_harga }}" min="0" required>
+                            </div>
+
+                            {{-- Status (Enum) --}}
+                            <div class="mb-3">
+                                <label for="status" class="form-label">Status</label>
+                                <select name="status" id="status" class="form-select" required>
+                                    @foreach (['pending', 'gagal', 'berhasil'] as $status)
+                                        <option value="{{ $status }}"
+                                            {{ $detail_pesanan->status === $status ? 'selected' : '' }}>
+                                            {{ ucfirst($status) }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
 
                             {{-- Tombol --}}

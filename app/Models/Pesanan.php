@@ -23,11 +23,10 @@ class Pesanan extends Model
         }
 
 
-    public function detail_pesanans()
+    public function detailpesanan()
         {
-            return $this->hasMany(Detail_pesanan::class, 'id_pesanan');
+            return $this->belongTo(Detail_pesanan::class);
         }
-
 
 
         // Relasi: setiap pesanan milik 1 pelanggan
