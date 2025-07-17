@@ -18,9 +18,9 @@
         content=" Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="CodedThemes">
     <!-- Favicon icon -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}" type="image/x-icon">
     <!-- Google font-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
+    <link href="{{ asset('https://fonts.googleapis.com/css?family=Open+Sans:400,600,800') }}" rel="stylesheet">
     <!-- Required Fremwork -->
     <link rel="stylesheet" type="text/css" href={{ asset('/assets/css/bootstrap/css/bootstrap.min.css') }}>
     <!-- themify-icons line icon -->
@@ -90,7 +90,8 @@
                                     </div>
                                 </div>
                                 <hr />
-                                <div class="input-group">
+                                {{-- <div class="input-group">
+
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -101,8 +102,22 @@
                                         </span>
                                     @enderror
                                     <span class="md-line"></span>
+                                </div> --}}
+                                <div class="form-group text-left mb-3">
+                                    <label for="email" class="form-label font-weight-bold">Email</label>
+                                    <input id="email" type="email"
+                                        class="form-control @error('email') is-invalid @enderror" name="email"
+                                        value="{{ old('email') }}" required autocomplete="email" autofocus
+                                        placeholder="Enter your email">
+                                    @error('email')
+                                        <span class="invalid-feedback d-block" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
-                                <div class="input-group">
+
+
+                                {{-- <div class="input-group">
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="current-password">
@@ -113,7 +128,21 @@
                                         </span>
                                     @enderror
                                     <span class="md-line"></span>
+                                </div> --}}
+
+                                <div class="form-group text-left mb-3">
+                                    <label for="password" class="form-label font-weight-bold">Password</label>
+                                    <input id="password" type="password"
+                                        class="form-control @error('password') is-invalid @enderror" name="password"
+                                        required autocomplete="current-password" placeholder="Enter your password">
+                                    @error('password')
+                                        <span class="invalid-feedback d-block" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
+
+
                                 <div class="row m-t-25 text-left">
                                     <div class="col-sm-7 col-xs-12">
                                         <div class="checkbox-fade fade-in-primary">
@@ -138,11 +167,11 @@
                                             {{ __('Login') }}
                                         </button>
                                         <div class="col-md-12">
-                                        @if (Route::has('password.request'))
-                                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                                {{ __('Forgot Your Password?') }}
-                                            </a>
-                                        @endif
+                                            @if (Route::has('password.request'))
+                                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                                    {{ __('Forgot Your Password?') }}
+                                                </a>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
