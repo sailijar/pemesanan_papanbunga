@@ -38,6 +38,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 
+
+
 // route pelanggan
 Route::get('/pelanggan', [PelangganController::class, 'index'])->name('pelanggan');
 Route::get('/pelanggan/create', [PelangganController::class, 'create']);
