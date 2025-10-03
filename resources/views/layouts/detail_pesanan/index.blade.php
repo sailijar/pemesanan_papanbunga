@@ -2,20 +2,25 @@
 
 @section('title', 'Detail Pesanan')
 
-@section('headline')
-    Detail Pesanan
-@endsection
 
 @section('content')
     <div class="container-fluid mt-4">
         <div class="row justify-content-center">
             <div class="col-lg-12">
                 <div class="card shadow">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <h2 class="mb-0">Daftar Detail Pesanan</h2>
-                        <a href="{{ url('/detail_pesanan/create') }}" class="btn btn-primary btn-sm">
-                            <i class="fa fa-plus me-1"></i> Tambah Data
-                        </a>
+                    <div class="card-header">
+                        <h1 class="mb-0">Daftar Detail Pesanan</h1>
+                        <br>
+                        <div class="d-flex justify-content-between align-items-center mt-3 px-1">
+                            <a href="{{ url('/detail_pesanan/create') }}" class="btn btn-primary btn-sm">
+                                <i class="fa fa-user-plus me-1"></i> Tambah Data
+                            </a>
+                            <form action="{{ url('/detail_pesanan') }}" method="GET" class="d-flex align-items-center">
+                                <input type="text" name="search" placeholder="Cari detail..."
+                                    class="form-control form-control-sm w-auto" value="{{ request('search') }}">
+                                <button type="submit" class="btn btn-light btn-sm ms-2"><i class="ti-search"></i></button>
+                            </form>
+                        </div>
                     </div>
 
                     <div class="card-body">

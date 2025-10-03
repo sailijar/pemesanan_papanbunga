@@ -82,6 +82,7 @@
                             @csrf
                             <div class="text-center">
                                 <img src="assets/images/auth/logo-dark.png" alt="logo.png">
+                                <h1>iwhfwiofh</h1>
                             </div>
                             <div class="auth-box">
                                 <div class="row m-b-20">

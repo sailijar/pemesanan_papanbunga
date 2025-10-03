@@ -81,8 +81,9 @@
                         <a class="mobile-search morphsearch-search" href="#">
                             <i class="ti-search"></i>
                         </a>
-                        <a href="index.html">
-                            <img class="img-fluid" src="{{ asset('assets/images/logo.png') }}" alt="Theme-Logo" />
+                        <a>
+                            {{-- <img class="img-fluid" src="{{ asset('assets/images/logo.png') }}" alt="Theme-Logo" /> --}}
+                            <h5>UD. Fajar Surya</h5>
                         </a>
                         <a class="mobile-options">
                             <i class="ti-more"></i>
@@ -290,49 +291,6 @@
                         <div class="pcoded-inner-content">
                             <div class="main-body">
                                 <div class="page-wrapper">
-                                    <div class="page-header card">
-                                        <div class="row align-items-end">
-                                            <div class="col-lg-8">
-                                                <div class="page-header-title">
-                                                    <i
-                                                        class="icofont icofont icofont icofont-file-document bg-c-blue"></i>
-                                                    <div class="d-inline">
-                                                        <h4>@yield('headline')</h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <form action="{{ url('/produk') }}" method="GET"
-                                                class="pcoded-search-box d-flex">
-                                                <input type="text" name="search" placeholder="Cari produk..."
-                                                    class="form-control" value="{{ request('search') }}">
-                                                <button type="submit" class="btn btn-light ms-2"><i
-                                                        class="ti-search"></i></button>
-                                            </form>
-                                            {{-- <div class="pcoded-search">
-                                                <span class="searchbar-toggle"> </span>
-                                                <div class="pcoded-search-box ">
-                                                    <input type="text" placeholder="Search">
-                                                    <span class="search-icon"><i class="ti-search"
-                                                            aria-hidden="true"></i></span>
-                                                </div>
-                                            </div> --}}
-                                            {{-- {{-- {{-- <div class="col-lg-4">
-                                                <div class="page-header-breadcrumb">
-                                                    <ul class="breadcrumb-title">
-                                                        <li class="breadcrumb-item">
-                                                            <a href="index.html">
-                                                                <i class="icofont icofont-home"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="breadcrumb-item"><a href="#!">Pages</a>
-                                                        </li>
-                                                        <li class="breadcrumb-item"><a href="#!">Sample page</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div> --}}
-                                        </div>
-                                    </div>
 
                                     {{-- conten kedua --}}
 
